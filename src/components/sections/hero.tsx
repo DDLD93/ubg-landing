@@ -1,60 +1,78 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import { CtaButton } from "@/components/cta-button";
 import { heroContent } from "@/lib/content";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-slate-950 flex items-center">
-      {/* Background Image for mobile / Overlay styling */}
-      <div className="absolute inset-0 z-0 lg:hidden">
+    <section className="relative overflow-hidden bg-background">
+      <div
+        className="pointer-events-none absolute inset-0 animate-drift opacity-60"
+        aria-hidden="true"
+      >
         <Image
-          src="/hero.png"
-          alt="Abstract 3D architectural glass and glowing fibers"
+          src="/editorial-mesh.svg"
+          alt=""
           fill
-          className="object-cover opacity-30"
+          className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Text Content */}
-          <div className="max-w-2xl space-y-8 text-white">
-            <p className="animate-fadeIn text-xs font-semibold tracking-[0.2em] text-slate-400 uppercase sm:text-sm">
+      <div className="container-editorial relative section-padding">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="max-w-xl space-y-8">
+            <p className="animate-rise text-xs font-medium uppercase tracking-[0.2em] text-accent-muted">
               {heroContent.eyebrow}
             </p>
-            <h1 className="animate-fadeInUp text-4xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
+            <h1
+              className="font-heading animate-rise-delay-1 text-balance text-4xl leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem]"
+            >
               {heroContent.headline}
             </h1>
-            <p className="animate-fadeInUp animation-delay-200 max-w-xl text-lg leading-relaxed text-slate-300">
+            <p className="animate-rise-delay-2 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
               {heroContent.subheadline}
             </p>
-            <div className="animate-fadeInUp animation-delay-300 pt-4">
+            <div className="animate-rise-delay-3 flex flex-col gap-3 sm:flex-row sm:items-center">
               <CtaButton
-                ctaName="hero_explore_operations"
+                ctaName="hero_view_portfolio"
                 size="lg"
                 href={heroContent.ctaHref}
-                className="rounded-none px-8 py-6 text-sm font-semibold tracking-wider uppercase bg-white text-slate-950 hover:bg-slate-200 transition-colors"
+                className="rounded-full px-7"
               >
                 {heroContent.ctaLabel}
               </CtaButton>
+              <Link
+                href={heroContent.secondaryCtaHref}
+                className="inline-flex min-h-11 items-center justify-center px-4 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+              >
+                {heroContent.secondaryCtaLabel}
+                <span className="ml-1.5" aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
 
-          {/* Desktop Image Section */}
-          <div className="hidden lg:block relative h-[600px] w-full animate-fadeIn animation-delay-200">
-            <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/20 to-transparent z-10" />
-            <Image
-              src="/hero.png"
-              alt="Abstract 3D architectural glass and glowing fibers"
-              fill
-              className="object-cover object-center border border-white/10 shadow-2xl shadow-white/5"
-              priority
+          <div className="relative animate-fade">
+            <div
+              className="pointer-events-none absolute -right-6 -top-6 size-32 animate-drift-slow rounded-full bg-accent-warm/20 blur-3xl"
+              aria-hidden="true"
             />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-[0_24px_64px_-24px_rgba(44,62,80,0.18)]">
+              <Image
+                src="/hero-editorial.png"
+                alt="Abstract editorial composition of architectural lines and fiber network motifs"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-tr from-background/10 via-transparent to-transparent"
+                aria-hidden="true"
+              />
+            </div>
           </div>
-
         </div>
       </div>
     </section>

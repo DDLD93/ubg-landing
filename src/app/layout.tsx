@@ -80,7 +80,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="flex min-h-full flex-col pb-24 md:pb-0">
+      <body className="flex min-h-full flex-col font-sans pb-24 md:pb-0">
         <WebVitals />
         {children}
         <GoogleAnalyticsProvider />

@@ -1,28 +1,39 @@
-export function SocialProofSection() {
-  const metrics = [
-    { label: "Fiber Laid Globally", value: "10,000+ km" },
-    { label: "Network Uptime", value: "99.999%" },
-    { label: "Assets Managed", value: "$4.2B" },
-    { label: "Corporate Partners", value: "500+" },
-  ];
+import Image from "next/image";
 
+import { trustContent } from "@/lib/content";
+
+export function SocialProofSection() {
   return (
-    <section className="border-y border-white/10 bg-slate-950 py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-sm font-medium tracking-widest text-slate-500 uppercase mb-8">
-          Trusted by enterprise leaders to scale operations
+    <section className="border-y border-border bg-surface">
+      <div className="container-editorial py-12 sm:py-14">
+        <p className="animate-rise text-center text-sm text-muted-foreground sm:text-[0.9375rem]">
+          {trustContent.statement}
         </p>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 divide-x divide-white/10">
-          {metrics.map((metric, index) => (
-            <div key={index} className="flex flex-col items-center justify-center space-y-2 text-center animate-fadeInUp" style={{ animationDelay: `${index * 100}ms` }}>
-              <span className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                {metric.value}
+        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
+          {trustContent.pillars.map((pillar, index) => (
+            <div
+              key={pillar.label}
+              className="animate-rise flex flex-col items-center text-center"
+              style={{ animationDelay: `${index * 0.1 + 0.1}s` }}
+            >
+              <span className="font-heading text-2xl tracking-tight text-foreground sm:text-3xl">
+                {pillar.value}
               </span>
-              <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
-                {metric.label}
+              <span className="mt-2 text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                {pillar.label}
               </span>
             </div>
           ))}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Image
+            src="/divider-editorial.svg"
+            alt=""
+            width={400}
+            height={48}
+            className="opacity-80"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </section>

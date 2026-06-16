@@ -22,31 +22,67 @@ export default function OpenGraphImage() {
           width: "100%",
           height: "100%",
           padding: "80px",
-          background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
-          color: "#f8fafc",
+          background: "linear-gradient(145deg, #FAFAF8 0%, #F5F3EF 55%, #EDE9E3 100%)",
+          color: "#2C3E50",
         }}
       >
         <div
           style={{
-            fontSize: 72,
-            fontWeight: 700,
-            letterSpacing: "-0.04em",
-            marginBottom: 24,
+            fontSize: 22,
+            fontWeight: 500,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#8B9AAB",
+            marginBottom: 28,
+          }}
+        >
+          UBG Group
+        </div>
+        <div
+          style={{
+            fontSize: 64,
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            maxWidth: 900,
+            marginBottom: 28,
           }}
         >
           {siteConfig.name}
         </div>
         <div
           style={{
-            fontSize: 36,
+            fontSize: 30,
             fontWeight: 400,
-            color: "#cbd5e1",
-            maxWidth: 900,
-            lineHeight: 1.3,
+            color: "#5A6A7A",
+            maxWidth: 820,
+            lineHeight: 1.45,
           }}
         >
           {siteConfig.tagline}
         </div>
+        <div
+          style={{
+            position: "absolute",
+            right: 80,
+            bottom: 60,
+            width: 200,
+            height: 200,
+            borderRadius: "50%",
+            background: "rgba(196, 181, 160, 0.25)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            right: 160,
+            top: 80,
+            width: 120,
+            height: 120,
+            borderRadius: "50%",
+            background: "rgba(139, 154, 171, 0.15)",
+          }}
+        />
       </div>
     ),
     {

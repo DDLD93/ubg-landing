@@ -5,11 +5,14 @@ import { siteConfig } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-slate-950 text-slate-400 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <footer
+      id="contact"
+      className="border-t border-border bg-surface text-muted-foreground"
+    >
+      <div className="container-editorial py-16 sm:py-20">
         <div className="grid gap-12 md:grid-cols-3">
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white">
+          <div className="space-y-5">
+            <p className="font-heading text-lg text-foreground">
               {siteConfig.name}
             </p>
             <address className="space-y-2 text-sm not-italic leading-relaxed">
@@ -17,7 +20,7 @@ export function Footer() {
               <p>
                 <a
                   href={`mailto:${footerContent.contact.email}`}
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 >
                   {footerContent.contact.email}
                 </a>
@@ -25,7 +28,7 @@ export function Footer() {
               <p>
                 <a
                   href={`tel:${footerContent.contact.phone.replace(/\s/g, "")}`}
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 >
                   {footerContent.contact.phone}
                 </a>
@@ -33,16 +36,16 @@ export function Footer() {
             </address>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white">
-              Subsidiaries
+          <div className="space-y-5">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-foreground">
+              Divisions
             </p>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2.5">
               {footerContent.subsidiaries.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="text-sm transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 >
                   {link.label}
                 </Link>
@@ -50,16 +53,16 @@ export function Footer() {
             </nav>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white">
+          <div className="space-y-5">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-foreground">
               Legal
             </p>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2.5">
               {footerContent.legal.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="text-sm transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 >
                   {link.label}
                 </Link>
@@ -68,8 +71,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <p className="text-sm text-white/60">{footerContent.copyright}</p>
+        <div className="mt-14 border-t border-border pt-8">
+          <p className="text-sm">{footerContent.copyright}</p>
         </div>
       </div>
     </footer>
