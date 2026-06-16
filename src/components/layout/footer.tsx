@@ -1,76 +1,116 @@
 import Link from "next/link";
 
-import { footerContent } from "@/lib/content";
+import { footerContent, sheetMeta } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
-export function Footer() {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <footer id="contact" className="bg-header-bg text-white/80">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-3">
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white">
+    <div className="border-paper/15">
+      <p className="font-mono text-[0.6rem] tracking-[0.2em] text-paper/40 uppercase">
+        {label}
+      </p>
+      <div className="mt-1.5 text-sm text-paper/85">{children}</div>
+    </div>
+  );
+}
+
+const linkClass =
+  "text-sm text-paper/65 transition-colors hover:text-paper";
+
+export function Footer() {
+  const { titleBlock, subsidiaries, legal, copyright } = footerContent;
+
+  return (
+    <footer id="contact" className="bg-ink text-paper">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="font-heading text-2xl font-bold tracking-tight text-paper">
               {siteConfig.name}
             </p>
-            <address className="space-y-2 text-sm not-italic leading-relaxed">
-              <p>{footerContent.contact.address}</p>
-              <p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-paper/60">
+              {siteConfig.tagline}
+            </p>
+
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <Field label="Enquiries">
                 <a
-                  href={`mailto:${footerContent.contact.email}`}
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  href={`mailto:${titleBlock.contactEmail}`}
+                  className="transition-colors hover:text-paper"
                 >
-                  {footerContent.contact.email}
+                  {titleBlock.contactEmail}
                 </a>
-              </p>
-              <p>
+              </Field>
+              <Field label="Telephone">
                 <a
-                  href={`tel:${footerContent.contact.phone.replace(/\s/g, "")}`}
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  href={`tel:${titleBlock.contactPhone.replace(/\s/g, "")}`}
+                  className="transition-colors hover:text-paper"
                 >
-                  {footerContent.contact.phone}
+                  {titleBlock.contactPhone}
                 </a>
-              </p>
-            </address>
+              </Field>
+              <Field label="Registered office">
+                <p className="not-italic">{titleBlock.address}</p>
+              </Field>
+            </div>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white">
+          <nav className="lg:col-span-4" aria-label="Subsidiaries">
+            <p className="font-mono text-[0.6rem] tracking-[0.2em] text-paper/40 uppercase">
               Subsidiaries
             </p>
-            <nav className="flex flex-col gap-2">
-              {footerContent.subsidiaries.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                >
-                  {link.label}
-                </Link>
+            <ul className="mt-4 space-y-3">
+              {subsidiaries.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={linkClass}>
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </nav>
-          </div>
+            </ul>
+          </nav>
 
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white">
+          <nav className="lg:col-span-3" aria-label="Legal">
+            <p className="font-mono text-[0.6rem] tracking-[0.2em] text-paper/40 uppercase">
               Legal
             </p>
-            <nav className="flex flex-col gap-2">
-              {footerContent.legal.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                >
-                  {link.label}
-                </Link>
+            <ul className="mt-4 space-y-3">
+              {legal.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className={linkClass}>
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </nav>
-          </div>
+            </ul>
+          </nav>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <p className="text-sm text-white/60">{footerContent.copyright}</p>
+        {/* Title block */}
+        <div className="mt-14 grid grid-cols-2 border border-paper/15 sm:grid-cols-4">
+          {[
+            ["Drawing", titleBlock.client],
+            ["Discipline", sheetMeta.discipline],
+            ["Scale", sheetMeta.scale],
+            ["Revision", sheetMeta.revision],
+          ].map(([label, value], i) => (
+            <div
+              key={label}
+              className={`p-4 ${i < 3 ? "border-r border-paper/15" : ""} ${
+                i < 2 ? "border-b border-paper/15 sm:border-b-0" : ""
+              }`}
+            >
+              <p className="font-mono text-[0.6rem] tracking-[0.2em] text-paper/40 uppercase">
+                {label}
+              </p>
+              <p className="mt-1.5 font-mono text-sm text-paper/85">{value}</p>
+            </div>
+          ))}
         </div>
+
+        <p className="mt-8 font-mono text-xs tracking-wide text-paper/50">
+          {copyright}
+        </p>
       </div>
     </footer>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 
 import { GoogleAnalyticsProvider } from "@/components/analytics/google-analytics";
 import { WebVitals } from "@/components/analytics/web-vitals";
@@ -9,14 +9,24 @@ import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
 
+// Body — neutral humanist sans, the quiet voice carrying the prose.
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-serif",
+// Display — a wide technical grotesque for headlines, set like signage on a drawing.
+const archivo = Archivo({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+});
+
+// Utility — monospace for coordinates, plate numbers, schedules, and eyebrows.
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -75,7 +85,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${sourceSerif.variable} h-full antialiased`}
+      className={`${inter.variable} ${archivo.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         <JsonLd />

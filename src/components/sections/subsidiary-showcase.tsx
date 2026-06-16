@@ -1,158 +1,80 @@
-import {
-  subsidiaryDeepDives,
-  type SubsidiaryDeepDive,
-  type SubsidiaryVariant,
-} from "@/lib/content";
+import { CropCorners } from "@/components/graphics/crop-corners";
+import { Glyph } from "@/components/graphics/glyphs";
+import { Reveal } from "@/components/reveal";
+import { subsidiaryDeepDives, type SubsidiaryDeepDive } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-function variantStyles(variant: SubsidiaryVariant) {
-  switch (variant) {
-    case "dark-card":
-      return {
-        section: "bg-white",
-        panel: "bg-slate-900 text-white",
-        image: "bg-slate-800",
-        imageLabel: "text-white/40",
-        label: "text-white/50",
-        body: "text-white/75",
-        feature: "text-white/80",
-        marker: "bg-white/40",
-      };
-    case "high-contrast":
-      return {
-        section: "bg-slate-50",
-        panel: "bg-white text-slate-900",
-        image: "bg-slate-950",
-        imageLabel: "text-white/40",
-        label: "text-slate-500",
-        body: "text-slate-600",
-        feature: "text-slate-700",
-        marker: "bg-slate-900",
-      };
-    case "bright":
-      return {
-        section: "bg-white",
-        panel: "bg-white text-slate-900",
-        image: "bg-slate-200",
-        imageLabel: "text-slate-500",
-        label: "text-slate-500",
-        body: "text-slate-600",
-        feature: "text-slate-700",
-        marker: "bg-slate-900",
-      };
-    case "serif":
-      return {
-        section: "bg-slate-50",
-        panel: "bg-white text-slate-900",
-        image: "bg-slate-300",
-        imageLabel: "text-slate-600",
-        label: "text-slate-500",
-        body: "text-slate-600",
-        feature: "text-slate-700",
-        marker: "bg-slate-900",
-      };
-  }
-}
-
-function ImagePlaceholder({
-  subsidiary,
-  imageSlot,
-  imageClass,
-  labelClass,
-}: {
-  subsidiary: SubsidiaryDeepDive;
-  imageSlot: string;
-  imageClass: string;
-  labelClass: string;
-}) {
-  return (
-    <div
-      className={cn(
-        "flex aspect-[4/3] items-center justify-center border border-divider",
-        imageClass,
-      )}
-      aria-hidden="true"
-    >
-      <span
-        className={cn(
-          "px-6 text-center text-xs tracking-wider uppercase",
-          labelClass,
-        )}
-      >
-        Image: {imageSlot}
-        <span className="mt-2 block normal-case opacity-70">{subsidiary.name}</span>
-      </span>
-    </div>
-  );
-}
-
-function SubsidiaryBlock({
+function Plate({
   subsidiary,
   index,
 }: {
   subsidiary: SubsidiaryDeepDive;
   index: number;
 }) {
-  const styles = variantStyles(subsidiary.variant);
-  const imageFirst = index % 2 === 0;
+  const glyphFirst = index % 2 === 0;
 
   return (
     <section
       id={subsidiary.id}
-      className={cn("border-t border-divider", styles.section)}
+      className={cn(
+        "border-b border-line scroll-mt-20",
+        index % 2 === 0 ? "bg-paper" : "bg-paper-raised",
+      )}
     >
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className={cn(!imageFirst && "lg:order-2")}>
-            <ImagePlaceholder
-              subsidiary={subsidiary}
-              imageSlot={subsidiary.imageSlot}
-              imageClass={styles.image}
-              labelClass={styles.imageLabel}
-            />
+      <Reveal className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          {/* Glyph plate */}
+          <div className={cn("relative", !glyphFirst && "lg:order-2")}>
+            <figure className="draft-grid relative border border-line bg-paper p-8 sm:p-12">
+              <CropCorners />
+              <div className="flex items-center justify-between">
+                <span className="label text-teal">Plate {subsidiary.plate}</span>
+                <span className="label text-ink-muted">Ref {subsidiary.ref}</span>
+              </div>
+              <Glyph
+                name={subsidiary.glyph}
+                className="mx-auto mt-6 w-2/3 max-w-[260px] text-ink"
+              />
+              <figcaption className="label mt-6 border-t border-line pt-4 text-center text-ink-muted">
+                {subsidiary.name} — {subsidiary.sector}
+              </figcaption>
+            </figure>
           </div>
 
-          <div
-            className={cn(
-              "space-y-6 p-8 lg:p-10",
-              styles.panel,
-              !imageFirst && "lg:order-1",
-            )}
-          >
-            <p
-              className={cn(
-                "text-xs font-medium tracking-[0.15em] uppercase",
-                styles.label,
-              )}
-            >
-              {subsidiary.name} | {subsidiary.sector}
-            </p>
-            <h2
-              className={cn(
-                "text-3xl font-bold tracking-tight sm:text-4xl",
-                subsidiary.variant === "serif" && "font-serif",
-              )}
-            >
+          {/* Specification */}
+          <div className={cn(!glyphFirst && "lg:order-1")}>
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-sm text-teal">{subsidiary.ref}</span>
+              <span className="h-px w-8 bg-line-strong" aria-hidden="true" />
+              <span className="label text-ink-muted">{subsidiary.sector}</span>
+            </div>
+
+            <h2 className="mt-6 max-w-md font-heading text-3xl font-bold leading-[1.08] tracking-tight text-ink sm:text-[2.6rem]">
               {subsidiary.headline}
             </h2>
-            <p className={cn("leading-relaxed", styles.body)}>{subsidiary.body}</p>
-            <ul className="space-y-3">
-              {subsidiary.features.map((feature) => (
+
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft">
+              {subsidiary.body}
+            </p>
+
+            <ul className="mt-8 space-y-px border-t border-line">
+              {subsidiary.features.map((feature, i) => (
                 <li
                   key={feature}
-                  className={cn("flex items-start gap-3 text-sm", styles.feature)}
+                  className="flex items-start gap-4 border-b border-line py-4"
                 >
-                  <span
-                    className={cn("mt-2 size-1.5 shrink-0", styles.marker)}
-                    aria-hidden="true"
-                  />
-                  {feature}
+                  <span className="mt-1 font-mono text-xs text-teal tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm leading-relaxed text-ink-soft">
+                    {feature}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -161,11 +83,7 @@ export function SubsidiaryShowcase() {
   return (
     <div>
       {subsidiaryDeepDives.map((subsidiary, index) => (
-        <SubsidiaryBlock
-          key={subsidiary.id}
-          subsidiary={subsidiary}
-          index={index}
-        />
+        <Plate key={subsidiary.id} subsidiary={subsidiary} index={index} />
       ))}
     </div>
   );

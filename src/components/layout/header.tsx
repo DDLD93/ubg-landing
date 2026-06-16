@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { CtaButton } from "@/components/cta-button";
-import { navItems } from "@/lib/content";
+import { navItems, sheetMeta } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -14,22 +14,30 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-md text-white">
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/85 text-ink backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          className="group flex items-center gap-3"
+          aria-label={`${siteConfig.name} — home`}
         >
-          <Image
-            src="/ubglogo.png"
-            alt="UBG Group"
-            width={40}
-            height={40}
-            className="h-9 w-9 object-contain"
-            priority
-          />
-          <span className="text-sm font-semibold tracking-tight sm:text-base">
-            {siteConfig.name}
+          <span className="flex size-9 items-center justify-center border border-line-strong bg-paper-raised">
+            <Image
+              src="/ubglogo.png"
+              alt=""
+              width={32}
+              height={32}
+              className="size-6 object-contain"
+              priority
+            />
+          </span>
+          <span className="flex flex-col leading-none">
+            <span className="font-heading text-sm font-bold tracking-tight text-ink">
+              {siteConfig.name}
+            </span>
+            <span className="label mt-1 text-[0.55rem] tracking-[0.2em] text-ink-muted">
+              {sheetMeta.drawingNo}
+            </span>
           </span>
         </Link>
 
@@ -38,7 +46,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              className="label text-ink-muted transition-colors hover:text-ink"
             >
               {item.label}
             </Link>
@@ -49,15 +57,17 @@ export function Header() {
           <CtaButton
             ctaName="header_partner_with_us"
             size="sm"
+            variant="outline"
+            arrow={false}
             href="#contact"
-            className="hidden rounded-none md:inline-flex"
+            className="hidden md:inline-flex"
           >
-            Partner With Us
+            Partner with us
           </CtaButton>
 
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center text-white md:hidden"
+            className="inline-flex size-10 items-center justify-center text-ink md:hidden"
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((open) => !open)}
@@ -69,16 +79,16 @@ export function Header() {
 
       <div
         className={cn(
-          "border-t border-white/10 bg-header-bg md:hidden",
+          "border-t border-line bg-paper md:hidden",
           mobileOpen ? "block" : "hidden",
         )}
       >
-        <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
+        <nav className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="px-2 py-3 text-sm text-white/80 transition-colors hover:text-white"
+              className="label border-b border-line py-4 text-ink-soft transition-colors hover:text-ink"
               onClick={() => setMobileOpen(false)}
             >
               {item.label}
@@ -87,10 +97,10 @@ export function Header() {
           <CtaButton
             ctaName="mobile_header_partner_with_us"
             href="#contact"
-            className="mt-2 w-full rounded-none"
+            className="mt-4 w-full"
             onAfterClick={() => setMobileOpen(false)}
           >
-            Partner With Us
+            Partner with us
           </CtaButton>
         </nav>
       </div>
