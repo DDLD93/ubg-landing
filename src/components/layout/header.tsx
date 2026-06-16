@@ -69,7 +69,7 @@ export function Header() {
 
       <div
         className={cn(
-          "border-t border-white/10 bg-slate-950 md:hidden",
+          "border-t border-white/10 bg-header-bg md:hidden",
           mobileOpen ? "block" : "hidden",
         )}
       >

@@ -7,10 +7,10 @@ export const navItems = [
 
 export const heroContent = {
   eyebrow: "MULTI-DISCIPLINARY CONGLOMERATE",
-  headline: "Build the Foundation of the Modern Enterprise.",
+  headline: "Engineering the Framework of Modern Enterprise.",
   subheadline:
-    "UBG Group provides the physical infrastructure, high-speed networks, and legal architecture required for aggressive corporate growth.",
-  ctaLabel: "Explore Infrastructure",
+    "UBG Group delivers precision at scale across telecommunications, civil infrastructure, and corporate law.",
+  ctaLabel: "Explore Our Operations",
   ctaHref: "#subsidiaries",
 } as const;
 
@@ -63,7 +63,7 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
     id: "nonitel",
     name: "Nonitel",
     sector: "Telecommunication",
-    headline: "Zero-latency connectivity for global scale.",
+    headline: "Connecting Tomorrow, Today.",
     body: "Nonitel operates at the cutting edge of global telecommunications. We engineer robust, scalable network architectures that handle high-throughput data and real-time communication systems. From consumer mobile networks to enterprise-grade SIP trunking and cloud telephony, Nonitel ensures zero-latency connectivity.",
     features: [
       "Carrier-grade network reliability.",
@@ -77,7 +77,7 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
     id: "blurinvestment",
     name: "Blurinvestment",
     sector: "Infrastructure & Fiber Optics",
-    headline: "Deploy high-speed fiber infrastructure anywhere.",
+    headline: "The Backbone of the Digital Age.",
     body: "Blurinvestment holds comprehensive multi-tier licensing for the deployment and management of vast fiber optic networks. We handle the physical layer of the internet—executing complex trenching, high-density cable installation, and node management to power smart cities and corporate hubs.",
     features: [
       "Multi-layer fiber optic licensing and compliance.",
@@ -91,7 +91,7 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
     id: "elite-edge",
     name: "Elite Edge",
     sector: "Construction & Estate Management",
-    headline: "Scale your physical footprint with precision.",
+    headline: "Shaping Skylines. Precision Asset Management.",
     body: "Elite Edge bridges the gap between ambitious architectural vision and flawless execution. We oversee commercial construction projects from ground-breaking to handover, paired with long-term estate management services that maximize asset yield and operational efficiency.",
     features: [
       "Commercial and industrial construction.",
@@ -105,7 +105,7 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
     id: "dynamite-legal",
     name: "Dynamite Legal",
     sector: "Corporate Law",
-    headline: "Aggressive growth secured by ironclad legal architecture.",
+    headline: "Securing Your Enterprise.",
     body: "Dynamite Legal provides the legal scaffolding required to run complex, multi-national operations. We specialize in corporate governance, telecommunications compliance, real estate law, and high-stakes dispute resolution. We don't just mitigate risk; we engineer legal strategies that enable aggressive business growth.",
     features: [
       "Contract architecture and dispute resolution.",
