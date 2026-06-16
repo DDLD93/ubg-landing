@@ -1,0 +1,138 @@
+export const navItems = [
+  { href: "#subsidiaries", label: "Subsidiaries" },
+  { href: "#blurinvestment", label: "Infrastructure" },
+  { href: "#dynamite-legal", label: "Corporate Governance" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
+export const heroContent = {
+  eyebrow: "MULTI-DISCIPLINARY CONGLOMERATE",
+  headline: "Engineering the Framework of Modern Enterprise.",
+  subheadline:
+    "UBG Group delivers precision at scale across telecommunications, civil infrastructure, and corporate law.",
+  ctaLabel: "Explore Our Operations",
+  ctaHref: "#subsidiaries",
+} as const;
+
+export const glanceContent = {
+  title: "UBG Group at a Glance",
+  columns: ["Subsidiary", "Sector", "Core Focus"] as const,
+  rows: [
+    {
+      subsidiary: "Nonitel",
+      sector: "Telecommunications",
+      coreFocus: "Next-gen networking and real-time comms",
+    },
+    {
+      subsidiary: "Blurinvestment",
+      sector: "Fiber Optics & Infra",
+      coreFocus: "Multi-tier fiber installation and licensing",
+    },
+    {
+      subsidiary: "Elite Edge",
+      sector: "Construction",
+      coreFocus: "Commercial real estate and asset management",
+    },
+    {
+      subsidiary: "Dynamite Legal",
+      sector: "Corporate Law",
+      coreFocus: "Enterprise compliance and legal architecture",
+    },
+  ],
+} as const;
+
+export type SubsidiaryVariant =
+  | "dark-card"
+  | "high-contrast"
+  | "bright"
+  | "serif";
+
+export type SubsidiaryDeepDive = {
+  id: string;
+  name: string;
+  sector: string;
+  headline: string;
+  body: string;
+  features: readonly string[];
+  variant: SubsidiaryVariant;
+  imageSlot: string;
+};
+
+export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
+  {
+    id: "nonitel",
+    name: "Nonitel",
+    sector: "Telecommunication",
+    headline: "Connecting Tomorrow, Today.",
+    body: "Nonitel operates at the cutting edge of global telecommunications. We engineer robust, scalable network architectures that handle high-throughput data and real-time communication systems. From consumer mobile networks to enterprise-grade SIP trunking and cloud telephony, Nonitel ensures zero-latency connectivity.",
+    features: [
+      "Carrier-grade network reliability.",
+      "Unified communications and real-time gateways.",
+      "Scalable bandwidth solutions for enterprise.",
+    ],
+    variant: "dark-card",
+    imageSlot: "nonitel",
+  },
+  {
+    id: "blurinvestment",
+    name: "Blurinvestment",
+    sector: "Infrastructure & Fiber Optics",
+    headline: "The Backbone of the Digital Age.",
+    body: "Blurinvestment holds comprehensive multi-tier licensing for the deployment and management of vast fiber optic networks. We handle the physical layer of the internet—executing complex trenching, high-density cable installation, and node management to power smart cities and corporate hubs.",
+    features: [
+      "Multi-layer fiber optic licensing and compliance.",
+      "End-to-end physical infrastructure installation.",
+      "Maintenance and bare-metal node scaling.",
+    ],
+    variant: "high-contrast",
+    imageSlot: "blurinvestment",
+  },
+  {
+    id: "elite-edge",
+    name: "Elite Edge",
+    sector: "Construction & Estate Management",
+    headline: "Shaping Skylines. Precision Asset Management.",
+    body: "Elite Edge bridges the gap between ambitious architectural vision and flawless execution. We oversee commercial construction projects from ground-breaking to handover, paired with long-term estate management services that maximize asset yield and operational efficiency.",
+    features: [
+      "Commercial and industrial construction.",
+      "Lifecycle estate and facility management.",
+      "Sustainable, high-efficiency building practices.",
+    ],
+    variant: "bright",
+    imageSlot: "elite-edge",
+  },
+  {
+    id: "dynamite-legal",
+    name: "Dynamite Legal",
+    sector: "Corporate Law",
+    headline: "Securing Your Enterprise.",
+    body: "Dynamite Legal provides the legal scaffolding required to run complex, multi-national operations. We specialize in corporate governance, telecommunications compliance, real estate law, and high-stakes dispute resolution. We don't just mitigate risk; we engineer legal strategies that enable aggressive business growth.",
+    features: [
+      "Contract architecture and dispute resolution.",
+      "Regulatory compliance for tech and construction sectors.",
+      "Mergers, acquisitions, and corporate structuring.",
+    ],
+    variant: "serif",
+    imageSlot: "dynamite-legal",
+  },
+] as const;
+
+export const footerContent = {
+  contact: {
+    address: "[HQ Address — to be confirmed]",
+    email: "inquiries@ubggroup.com",
+    phone: "+1 (000) 000-0000",
+  },
+  subsidiaries: [
+    { href: "#nonitel", label: "Nonitel" },
+    { href: "#blurinvestment", label: "Blurinvestment" },
+    { href: "#elite-edge", label: "Elite Edge" },
+    { href: "#dynamite-legal", label: "Dynamite Legal" },
+  ],
+  legal: [
+    { href: "#", label: "Privacy Policy" },
+    { href: "#", label: "Terms of Service" },
+    { href: "#", label: "Licensing Directory" },
+  ],
+  copyright: "© 2026 UBG Group. All rights reserved. Engineered for scale.",
+} as const;
