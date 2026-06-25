@@ -120,9 +120,9 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
 
 export const footerContent = {
   contact: {
-    address: "[HQ Address — to be confirmed]",
-    email: "inquiries@ubggroup.com",
-    phone: "+1 (000) 000-0000",
+    address: "United Kingdom",
+    email: "hello@ubggroup.com",
+    phone: "Contact us via email for inquiries",
   },
   subsidiaries: [
     { href: "#nonitel", label: "Nonitel" },
