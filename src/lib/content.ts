@@ -21,12 +21,12 @@ export const glanceContent = {
     {
       subsidiary: "Nonitel",
       sector: "Telecommunications",
-      coreFocus: "Next-gen networking and real-time comms",
+      coreFocus: "Next-gen networking (hosted by Blurinvestment)",
     },
     {
       subsidiary: "Blurinvestment",
       sector: "Fiber Optics & Infra",
-      coreFocus: "Multi-tier fiber installation and licensing",
+      coreFocus: "Fiber installation & hosting infrastructure for Nonitel",
     },
     {
       subsidiary: "Elite Edge",
@@ -64,11 +64,11 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
     name: "Nonitel",
     sector: "Telecommunication",
     headline: "Zero-latency connectivity for global scale.",
-    body: "Nonitel operates at the cutting edge of global telecommunications. We engineer robust, scalable network architectures that handle high-throughput data and real-time communication systems. From consumer mobile networks to enterprise-grade SIP trunking and cloud telephony, Nonitel ensures zero-latency connectivity.",
+    body: "Nonitel operates at the cutting edge of global telecommunications. Hosted by Blurinvestment to establish and launch its next-generation services, we engineer robust, scalable network architectures that handle high-throughput data and real-time communication systems.",
     features: [
       "Carrier-grade network reliability.",
       "Unified communications and real-time gateways.",
-      "Scalable bandwidth solutions for enterprise.",
+      "Hosted and powered by Blurinvestment's physical fiber infrastructure.",
     ],
     variant: "dark-card",
     imageSlot: "nonitel",
@@ -78,11 +78,11 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
     name: "Blurinvestment",
     sector: "Infrastructure & Fiber Optics",
     headline: "Deploy high-speed fiber infrastructure anywhere.",
-    body: "Blurinvestment holds comprehensive multi-tier licensing for the deployment and management of vast fiber optic networks. We handle the physical layer of the internet—executing complex trenching, high-density cable installation, and node management to power smart cities and corporate hubs.",
+    body: "Blurinvestment holds comprehensive multi-tier licensing for the deployment and management of vast fiber optic networks. We handle the physical layer of the internet—executing complex trenching, high-density cable installation, and node management to power smart cities and corporate hubs. and host Nonitel as it launches its service.",
     features: [
       "Multi-layer fiber optic licensing and compliance.",
       "End-to-end physical infrastructure installation.",
-      "Maintenance and bare-metal node scaling.",
+      "Proudly hosting and launching Nonitel's core telecom network.",
     ],
     variant: "high-contrast",
     imageSlot: "blurinvestment",
