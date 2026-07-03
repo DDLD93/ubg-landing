@@ -92,11 +92,12 @@ export const subsidiaryDeepDives: readonly SubsidiaryDeepDive[] = [
     name: "Elite Edge",
     sector: "Construction & Estate Management",
     headline: "Scale your physical footprint with precision.",
-    body: "Elite Edge bridges the gap between ambitious architectural vision and flawless execution. We oversee commercial construction projects from ground-breaking to handover, paired with long-term estate management services that maximize asset yield and operational efficiency.",
+    body: "Elite Edge bridges the gap between ambitious architectural vision and flawless execution. We oversee commercial construction projects from ground-breaking to handover, paired with long-term estate management services that maximize asset yield and operational efficiency. Our motto: 'From Foundation to fortune'.",
     features: [
       "Commercial and industrial construction.",
       "Lifecycle estate and facility management.",
       "Sustainable, high-efficiency building practices.",
+      "Motto: From Foundation to fortune.",
     ],
     variant: "bright",
     imageSlot: "elite-edge",
