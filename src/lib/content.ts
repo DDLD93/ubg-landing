@@ -125,9 +125,9 @@ export const footerContent = {
     phone: "Contact us via email for inquiries",
   },
   subsidiaries: [
-    { href: "#nonitel", label: "Nonitel" },
+    { href: "https://www.nonitel.ng/", label: "Nonitel" },
     { href: "#blurinvestment", label: "Blur Investment" },
-    { href: "#elite-edge", label: "Elite Edge" },
+    { href: "https://www.elite-edge.ng.com/", label: "Elite Edge" },
     { href: "#dynamite-legal", label: "Dynamite Legal" },
   ],
   legal: [
