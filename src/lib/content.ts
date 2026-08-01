@@ -127,7 +127,7 @@ export const footerContent = {
   subsidiaries: [
     { href: "https://www.nonitel.ng/", label: "Nonitel" },
     { href: "#blurinvestment", label: "Blur Investment" },
-    { href: "https://www.elite-edge.ng.com/", label: "Elite Edge" },
+    { href: "https://www.eliteedge.com.ng/", label: "Elite Edge" },
     { href: "#dynamite-legal", label: "Dynamite Legal" },
   ],
   legal: [
